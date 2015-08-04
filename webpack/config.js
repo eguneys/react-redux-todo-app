@@ -47,7 +47,16 @@ var config = {
   ],
   plugins: plugins,
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx'],
+    alias: {
+      'decorators': path.join(__dirname, '../app/decorators'),
+      'components': path.join(__dirname, '../app/components'),
+      'reducers': path.join(__dirname, '../app/reducers'),
+      'actions': path.join(__dirname, '../app/actions'),
+      'constants': path.join(__dirname, '../app/constants'),
+      'utils': path.join(__dirname, '../app/utils'),
+      'lib': path.join(__dirname, '../app/lib')
+    }
   },
   devServer: {
     contentBase: path.resolve(pkg.config.buildDir),
