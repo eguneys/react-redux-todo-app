@@ -2,8 +2,7 @@
 import _ from 'lodash';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import * as reducers from '../reducers';
-import * as types from 'constants/ActionTypes';
+import * as reducers from 'reducers';
 
 export function arrayMiddleware() {
   return next =>

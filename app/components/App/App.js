@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import HelloApp from 'components/HelloApp/HelloApp';
 
-const store = createStore(realtime);
+const store = createStore();
 
 class App extends React.Component {
   render() {

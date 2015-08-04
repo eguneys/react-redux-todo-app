@@ -16,4 +16,4 @@ class HelloApp extends React.Component {
   }
 }
 
-export default OkeyAppWrapper;
+export default HelloApp;
