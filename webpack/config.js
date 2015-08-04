@@ -19,7 +19,7 @@ if (DEBUG) {
   entry.app.push(
     util.format(
       'webpack-dev-server/client?http://%s:%d',
-      pkg.config.devHost,
+      '191.168.56.103',
       pkg.config.devPort
     )
   );

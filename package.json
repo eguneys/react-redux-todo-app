@@ -7,7 +7,7 @@
   "config": {
     "buildDir": "./build",
     "buildDirTests": "./build_tests",
-    "devHost": "localhost",
+    "devHost": "0.0.0.0",
     "devPort": 8000
   },
   "scripts": {
