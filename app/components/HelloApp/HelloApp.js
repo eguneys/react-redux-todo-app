@@ -10,7 +10,7 @@ class HelloApp extends React.Component {
 
     return (
       <div>
-        Hello world!
+        <h2>Hello world!</h2>
       </div>
     );
   }
