@@ -47,6 +47,7 @@ var config = {
   ],
   plugins: plugins,
   resolve: {
+    modulesDirectories: ['node_modules'],
     extensions: ['', '.js', '.json', '.jsx'],
     alias: {
       'decorators': path.join(__dirname, '../app/decorators'),

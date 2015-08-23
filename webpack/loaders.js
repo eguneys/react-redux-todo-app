@@ -22,6 +22,7 @@ var htmlLoader = [
 var jsonLoader = ['json-loader'];
 
 var sassParams = [
+  'sourceMap',
   'outputStyle=expanded',
   'includePaths[]=' + path.resolve(__dirname, '../app/scss'),
   'includePaths[]=' + path.resolve(__dirname, '../node_modules')
@@ -48,7 +49,7 @@ if (DEBUG || TEST) {
     'postcss-loader'
   ].join('!');
 } else {
-  jsxLoader = ['babel-loader?optional[]=runtime&stage=0&plugins=rewire'];
+  jsxLoader = ['babel-loader?optional=runtime&stage=0&plugins=rewire'];
   sassLoader = ExtractTextPlugin.extract('style-loader', [
     'css-loader',
     'postcss-loader',
