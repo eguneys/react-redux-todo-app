@@ -22,7 +22,7 @@ class HelloApp extends React.Component {
   handleNewTodoKeys= (e) => {
     const getRefValue = (name) => {
       return React.findDOMNode(this.refs[name]).value;
-    }
+    };
 
     const { dispatch } = this.props;
 
@@ -37,7 +37,7 @@ class HelloApp extends React.Component {
   handleEditTodoKeys = (id, e) => {
     const getRefValue = (name) => {
       return React.findDOMNode(this.refs[name]).value;
-    }
+    };
     const { dispatch } = this.props;
 
     const actions = bindActionCreators(TodoActions, dispatch);
@@ -103,19 +103,19 @@ class HelloApp extends React.Component {
     }
 
     return (
-      <li key={key} className={itemClass}>
+      <li className={itemClass} key={key}>
         <div className='view'>
-          <input className='toggle'
+          <input checked={todo.isCompleted}
+                 className='toggle'
                  onChange={this.handleCompletedToggle.bind(this, key)}
-                 checked={todo.isCompleted}
                  type='checkbox'/>
           <label onClick={this.todoEditMode.bind(this, key)}>{todo.text}</label>
           <button className='destroy'
                   onClick={this.handleRemoveTodo.bind(this, key)}/>
         </div>
-        <input onKeyPress={this.handleEditTodoKeys.bind(this, key)}
-               ref={'editTodoInput' + key}
-               className='edit'/>
+        <input className='edit'
+               onKeyPress={this.handleEditTodoKeys.bind(this, key)}
+               ref={'editTodoInput' + key}/>
       </li>
     );
   }
@@ -124,9 +124,9 @@ class HelloApp extends React.Component {
     const getSelectedClass = (type) => {
       const { filterType } = this.state;
 
-      if (filterType === type) return 'selected';
+      if (filterType === type) { return 'selected'; }
       return '';
-    }
+    };
 
     if (todosCount === 0) {
       return null;
@@ -139,26 +139,32 @@ class HelloApp extends React.Component {
         </span>
         <ul className='filters'>
           <li>
-            <a href='#' onClick={this.handleFilter.bind(this, 'all')}
-               className={getSelectedClass('all')}>All</a>
+            <a className={getSelectedClass('all')}
+               href='#'
+               onClick={this.handleFilter.bind(this, 'all')}>All</a>
           </li>
           <li>
-            <a href='#' onClick={this.handleFilter.bind(this, 'active')}
-               className={getSelectedClass('active')}>Active</a>
+            <a className={getSelectedClass('active')}
+               href='#'
+               onClick={this.handleFilter.bind(this, 'active')}>
+              Active</a>
           </li>
           <li>
-            <a href='#' onClick={this.handleFilter.bind(this, 'completed')}
-               className={getSelectedClass('completed')}>Completed</a>
+            <a className={getSelectedClass('completed')}
+               href='#'
+               onClick={this.handleFilter.bind(this, 'completed')}>
+              Completed</a>
           </li>
         </ul>
-        <button onClick={this.handleClearCompleted}
-                className='clear-completed'>Clear completed</button>
+        <button className='clear-completed'
+                onClick={this.handleClearCompleted}>
+          Clear completed</button>
       </footer>
     );
   }
 
   render() {
-    const {TodoStore, dispatch} = this.props;
+    const {TodoStore} = this.props;
 
     const todos = TodoStore.get('todos').toJS();
 
@@ -189,14 +195,15 @@ class HelloApp extends React.Component {
         <section className='todoapp'>
           <header className='header'>
             <h1>todos</h1>
-            <input ref='newTodoInput'
+            <input className='new-todo'
                    onKeyPress={this.handleNewTodoKeys}
-                   className='new-todo'
-                   placeholder='What needs to be done?'/>
+                   placeholder='What needs to be done?'
+                   ref='newTodoInput'/>
           </header>
           <section className='main'>
-            <input onChange={this.handleToggleAll}
-                   className='toggle-all' type='checkbox'/>
+            <input className='toggle-all'
+                   onChange={this.handleToggleAll}
+                   type='checkbox'/>
             <label htmlFor='toggle-all'>Mark all as complete</label>
             <ul className='todo-list'>
               {todosDOM}

@@ -11,15 +11,13 @@ function mockTodo(text, isCompleted = false) {
 }
 
 describe('Todo Store', () => {
-  let store, initialTodo, initialTodos, todoActions;
+  let store, initialTodo, todoActions;
 
   beforeEach(() => {
     store = createStore();
     todoActions = bindActionCreators(TodoActions, store.dispatch);
 
     initialTodo = mockTodo('Initial Todo');
-
-    initialTodos = [initialTodo];
   });
 
   function todoState(prop) {
@@ -27,9 +25,9 @@ describe('Todo Store', () => {
   }
 
   it('should add todo', () => {
-    todoActions.addTodo("mock todo");
+    todoActions.addTodo('mock todo');
 
-    const expectedTodos =  [
+    const expectedTodos = [
       initialTodo,
       mockTodo('mock todo')
     ];

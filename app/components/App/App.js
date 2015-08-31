@@ -9,14 +9,6 @@ const store = createStore();
 
 class App extends React.Component {
 
-  renderRouter() {
-    return (
-      <Router history={history}>
-        {routes}
-      </Router>
-    );
-  }
-
   render() {
     return (
       <Provider {...{ store }}>

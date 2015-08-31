@@ -42,7 +42,7 @@ export default createReducer(initialState, {
   },
 
   [types.EDIT_TODO](state, { id, text }) {
-    state = state.updateIn(['todos', id, 'text'], (oldText) =>
+    state = state.updateIn(['todos', id, 'text'], () =>
       text
     );
     return state;
