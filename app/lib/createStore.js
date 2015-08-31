@@ -15,7 +15,7 @@ export function arrayMiddleware() {
       next(action);
     };
 }
-export default function (realtime, initialState) {
+export default function (initialState) {
   const createStoreWithMiddleware = applyMiddleware(
     arrayMiddleware,
     thunk

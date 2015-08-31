@@ -34,7 +34,7 @@ if (DEBUG || TEST) {
     jsxLoader.push('react-hot');
     jsxLoader.push('babel-loader?optional[]=runtime&stage=0');
   } else {
-    jsxLoader.push('babel-loader?optional[]=runtime&stage=0&plugins=rewire');
+    jsxLoader.push('babel-loader?optional[]=runtime&stage=0');
   }
   sassParams.push('sourceMap', 'sourceMapContents=true');
   sassLoader = [
