@@ -1,11 +1,12 @@
-import React from 'react/addons';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 import * as TodoActions from 'actions/TodoActions';
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-const { update } = React.addons;
+import update from 'react-addons-update';
 
 const ENTER_KEY = 13;
 
@@ -21,7 +22,7 @@ class HelloApp extends React.Component {
 
   handleNewTodoKeys= (e) => {
     const getRefValue = (name) => {
-      return React.findDOMNode(this.refs[name]).value;
+      return ReactDOM.findDOMNode(this.refs[name]).value;
     };
 
     const { dispatch } = this.props;
@@ -36,7 +37,7 @@ class HelloApp extends React.Component {
 
   handleEditTodoKeys = (id, e) => {
     const getRefValue = (name) => {
-      return React.findDOMNode(this.refs[name]).value;
+      return ReactDOM.findDOMNode(this.refs[name]).value;
     };
     const { dispatch } = this.props;
 
